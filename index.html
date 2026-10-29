@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=02fc5a36-1319-49d4-ae91-8e75cc2da486
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <title>Taha | Developer Desktop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <noscript><style>.lock-screen{display:none!important}body.is-locked{overflow:auto}body.is-locked *{animation:none!important;opacity:1!important;translate:none!important}</style></noscript>
+</head>
+<body data-wallpaper="onyx" data-theme="dark" class="is-locked">
+  <div class="wallpaper-glow glow-one"></div>
+  <div class="wallpaper-glow glow-two"></div>
+  <div class="wallpaper-image" id="wallpaperImage" aria-hidden="true"></div>
+  <div class="grain"></div>
+
+  <!-- ============ iPhone-style lock screen ============ -->
+  <div class="lock-screen" id="lockScreen" tabindex="-1" role="dialog" aria-label="Lock screen" aria-describedby="lockHintText">
+    <div class="lock-scrim"></div>
+
+    <!-- Decorative status bar. Static artwork only: it does not read real battery, Wi-Fi or signal data. -->
+    <div class="lock-status" aria-hidden="true">
+      <span class="lock-carrier">Taha</span>
+      <span class="lock-icons">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity=".4"/></svg>
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1.5 4.6a10.5 10.5 0 0 1 15 0M4.2 7.5a6.6 6.6 0 0 1 9.6 0M6.9 10.2a2.8 2.8 0 0 1 4.2 0"/><circle cx="9" cy="12.4" r=".9" fill="currentColor"/></svg>
+        <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="16" height="9" rx="2" fill="currentColor"/><path d="M24.5 4.5v4c.9-.3 1.5-1.2 1.5-2s-.6-1.7-1.5-2z" fill="currentColor" opacity=".5"/></svg>
+      </span>
+    </div>
+
+    <div class="lock-center">
+      <svg class="lock-padlock" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <p class="lock-date" id="lockDate">&nbsp;</p>
+      <div class="lock-time" id="lockTime" role="timer" aria-label="Current time">
+        <span id="lockHM">--:--</span>
+        <span class="lock-aside" aria-hidden="true"><span id="lockPeriod"></span><span id="lockSec"></span></span>
+      </div>
+    </div>
+
+    <div class="lock-bottom">
+      <div class="lock-card">
+        <span class="brand-mark">T.</span>
+        <div><div class="lock-card-top"><b>Ahmad's Portfolio</b><span>now</span></div><p>Hey, I'm Ahmad. Unlock to see my work.</p></div>
+      </div>
+      <div class="lock-tools">
+        <button class="lock-tool" id="lockBrowseBtn" type="button" aria-label="Browse wallpapers" title="Browse wallpapers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></button>
+        <button class="lock-hint" id="lockHint" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+          <span id="lockHintText"><span class="hint-touch">Swipe up to unlock</span><span class="hint-pointer">Click or swipe up to unlock</span></span>
+        </button>
+        <button class="lock-tool" id="lockUploadBtn" type="button" aria-label="Upload a wallpaper" title="Upload your own wallpaper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5h6M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/></svg></button>
+      </div>
+      <span class="lock-home" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <!-- Native file picker (JPG, JPEG, PNG, WEBP). Opened by every "upload" button. -->
+  <input type="file" id="wallpaperInput" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" hidden>
+
+  <!-- ============ Wallpaper browser ============ -->
+  <div class="wall-backdrop" id="wallBackdrop" hidden>
+    <section class="wall-sheet" id="wallSheet" role="dialog" aria-modal="true" aria-labelledby="wallTitle">
+      <div class="wall-head">
+        <div><h2 id="wallTitle">Wallpaper</h2><p>Pick a look, or use your own photo.</p></div>
+        <button class="wall-close" id="wallClose" type="button" aria-label="Close wallpaper browser"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div class="wall-grid">
+        <button class="wall-tile wall-upload" id="wallUploadTile" type="button">
+          <span class="tile-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 5h6M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/></svg><small>JPG, PNG or WEBP</small></span>
+          Upload photo
+        </button>
+        <button class="wall-tile" data-wall="custom" type="button" aria-pressed="false" hidden><span class="tile-art"></span>Your photo</button>
+        <button class="wall-tile" data-wall="onyx" type="button" aria-pressed="true"><span class="tile-art"></span>Onyx</button>
+        <button class="wall-tile" data-wall="graphite" type="button" aria-pressed="false"><span class="tile-art"></span>Graphite</button>
+        <button class="wall-tile" data-wall="slate" type="button" aria-pressed="false"><span class="tile-art"></span>Slate</button>
+        <button class="wall-tile" data-wall="snow" type="button" aria-pressed="false"><span class="tile-art"></span>Snow</button>
+        <button class="wall-tile" data-wall="silver" type="button" aria-pressed="false"><span class="tile-art"></span>Silver</button>
+              </div>
+      <div class="wall-foot"><span>Your photo is resized and kept only in this browser. It is never uploaded anywhere.</span><button class="wall-remove" id="wallRemove" type="button" hidden>Remove my photo</button></div>
+    </section>
+  </div>
+
+  <header class="topbar">
+    <div class="top-left"><span class="brand-mark">T.</span><strong>Taha's Desktop</strong></div>
+    <nav class="top-nav" aria-label="Quick navigation">
+      <button data-open="about">About</button>
+      <button data-open="projects">Projects</button>
+      <button data-open="skills">Skills</button>
+      <button data-open="contact">Contact</button>
+    </nav>
+    <div class="system-status"><button class="lock-btn" id="lockNow" type="button" aria-label="Lock screen" title="Lock screen"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button><span class="status-dot"></span><span id="clock">10:09 PM</span></div>
+  </header>
+
+  <main class="desktop" id="desktop">
+    <section class="welcome-card glass">
+      <div class="welcome-copy">
+        <div class="eyebrow"><span class="pulse"></span> AVAILABLE TO LEARN & BUILD</div>
+        <h1>Hey, I'm <span>Taha.</span></h1>
+        <p class="role-line">Aspiring Software Engineer <span class="role-divider">/</span> Laravel Developer</p>
+        <p class="intro">I turn ideas into clean, useful digital experiences, one line of code at a time.</p>
+        <div class="welcome-actions">
+          <button class="primary-btn" data-open="projects">Explore my work <span><svg class="ic ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg></span></button>
+          <button class="quiet-btn" data-open="contact">Let's talk</button>
+        </div>
+      </div>
+      <div class="character-area character-area-3d" aria-label="Ahmad's profile photo">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="avatar-shadow"></div>
+        <div class="profile-photo"><img src="assets/profile.jpg" alt="Portrait of Ahmad" width="400" height="400" loading="eager" decoding="async"></div>
+        <div class="float-chip chip-code">&lt;/&gt; <span>building</span></div>
+        <div class="float-chip chip-coffee">☕ <span>debug mode</span></div>
+        <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div>
+      </div>
+      <div class="card-foot"><span><i></i> Currently learning Laravel</span><span>Scroll less. Explore more ↓</span></div>
+    </section>
+
+    <section class="mini-widget glass">
+      <div class="widget-top"><span class="widget-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path d="M5 18H3" /></svg></span><span class="tiny-label">A LITTLE ABOUT ME</span><button class="dots" aria-label="Open about" data-open="about">•••</button></div>
+      <h2>Curious mind.<br><span>Builder's heart.</span></h2>
+      <p>Learning by building real projects and improving every day.</p>
+      <button class="text-link" data-open="about">Get to know me <span><svg class="ic ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg></span></button>
+      <div class="widget-decoration">T</div>
+    </section>
+
+    <section class="project-widget about-widget glass">
+      <div class="section-kicker">ABOUT ME <span>T.</span></div>
+      <h2 class="about-title">Learning today.<br><span>Building for tomorrow.</span></h2>
+      <p>I'm Taha, an IT diploma student at Aptech with a growing passion for web development. I'm currently learning Laravel and building my foundation in PHP, MySQL, and modern web development.</p>
+      <p>My goal is to become a software engineer and, in the future, build a software house of my own, inshallah.</p>
+      <div class="tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>HTML &amp; CSS</span></div>
+    </section>
+
+    <section class="quote-widget glass">
+      <span class="quote-mark">“</span>
+      <p>Great things are built<br>one small step at a time.</p>
+      <div class="quote-bottom"><span>MY CURRENT MINDSET</span><span class="tiny-star">✦</span></div>
+    </section>
+
+    <div class="wallpaper-control glass">
+      <span class="control-label">WALLPAPER</span>
+      <button class="wallpaper-swatch active" data-wall="onyx" aria-label="Onyx matte black wallpaper"><i></i></button>
+      <button class="wallpaper-swatch" data-wall="graphite" aria-label="Graphite wallpaper"><i></i></button>
+      <button class="wallpaper-swatch" data-wall="snow" aria-label="Snow white wallpaper"><i></i></button>
+      <button class="wallpaper-swatch" data-wall="custom" aria-label="Your uploaded wallpaper" hidden><i></i></button>
+      <span class="control-divider"></span>
+      <button class="wall-icon-btn" id="uploadWallpaperBtn" type="button" aria-label="Upload your own wallpaper" title="Upload your own wallpaper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5h6M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/></svg></button>
+      <button class="wall-icon-btn" id="browseWallpaperBtn" type="button" aria-label="Browse all wallpapers" title="Browse all wallpapers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></button>
+    </div>
+  </main>
+
+  <div class="window-layer" id="windowLayer">
+    <section class="app-window glass" id="window-about" data-window="about" hidden>
+      <div class="window-bar"><div class="window-controls"><button class="close" data-close="about" aria-label="Close"></button><button class="minimize" data-close="about" aria-label="Minimize"></button><button class="maximize" aria-label="Decorative maximize"></button></div><strong>About Ahmad</strong><span class="window-spacer"></span><button class="window-x" data-close="about" type="button" aria-label="Close window" title="Close (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="window-content about-content"><div class="window-icon large-icon">T.</div><div><div class="eyebrow">A QUICK INTRODUCTION</div><h2>Learning today.<br><span>Building for tomorrow.</span></h2><p>I'm Taha, an IT diploma student at Aptech with a growing passion for web development. I'm currently learning Laravel and building my foundation in PHP, MySQL, and modern web development.</p><p>My goal is to become a software engineer and, in the future, build a software house of my own, inshallah.</p><div class="fact-grid"><div><span>01</span><b>Always learning</b><small>New tools, better habits</small></div><div><span>02</span><b>Focused on growth</b><small>Practice through projects</small></div></div></div></div>
+    </section>
+
+    <section class="app-window glass" id="window-projects" data-window="projects" hidden>
+      <div class="window-bar"><div class="window-controls"><button class="close" data-close="projects" aria-label="Close"></button><button class="minimize" data-close="projects" aria-label="Minimize"></button><button class="maximize" aria-label="Decorative maximize"></button></div><strong>Projects</strong><span class="window-spacer"></span><button class="window-x" data-close="projects" type="button" aria-label="Close window" title="Close (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="window-content"><div class="eyebrow">SELECTED WORK</div><h2>Live projects<span>.</span></h2><div class="proj-bar"><div class="proj-filters" id="projFilters" role="group" aria-label="Filter projects"></div><span class="proj-count" id="projCount"></span></div>
+      <div class="proj-grid" id="projGrid"></div>
+      <p class="note">Tip: every project opens in a new tab, so you can come back to this portfolio anytime.</p></div>
+    </section>
+
+    <section class="app-window glass" id="window-skills" data-window="skills" hidden>
+      <div class="window-bar"><div class="window-controls"><button class="close" data-close="skills" aria-label="Close"></button><button class="minimize" data-close="skills" aria-label="Minimize"></button><button class="maximize" aria-label="Decorative maximize"></button></div><strong>Skills & toolkit</strong><span class="window-spacer"></span><button class="window-x" data-close="skills" type="button" aria-label="Close window" title="Close (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="window-content"><div class="eyebrow">CURRENT TOOLKIT</div><h2>Growing my stack<span>.</span></h2><p class="muted">These are learning areas, not a claim of expert-level proficiency.</p><div class="skill-grid">
+        <div class="skill-card"><div class="skill-symbol php"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg></div><b>PHP</b><span>Backend foundations</span><div class="skill-track"><i style="width:62%"></i></div></div>
+        <div class="skill-card"><div class="skill-symbol laravel"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.642 5.43a.364.364 0 01.014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 01-.188.326L9.93 23.949a.316.316 0 01-.066.027c-.008.002-.016.008-.024.01a.348.348 0 01-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 01-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 01.023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034H.53L5.043.05a.375.375 0 01.375 0L9.93 2.647h.002c.015.01.027.021.04.033l.038.027c.013.014.02.03.033.045.008.011.02.021.025.033.01.02.017.038.024.058.003.011.01.021.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.01.01-.02.013-.032a.487.487 0 01.024-.059c.007-.012.018-.02.025-.033.012-.015.021-.03.033-.043.012-.012.025-.02.037-.028.014-.01.026-.023.041-.032h.001l4.513-2.598a.375.375 0 01.375 0l4.513 2.598c.016.01.027.021.042.031.012.01.025.018.036.028.013.014.022.03.034.044.008.012.019.021.024.033.011.02.018.04.024.06.006.01.012.021.015.032zm-.74 5.032V6.179l-1.578.908-2.182 1.256v4.283zm-4.51 7.75v-4.287l-2.147 1.225-6.126 3.498v4.325zM1.093 3.624v14.588l8.273 4.761v-4.325l-4.322-2.445-.002-.003H5.04c-.014-.01-.025-.021-.04-.031-.011-.01-.024-.018-.035-.027l-.001-.002c-.013-.012-.021-.025-.031-.04-.01-.011-.021-.022-.028-.036h-.002c-.008-.014-.013-.031-.02-.047-.006-.016-.014-.027-.018-.043a.49.49 0 01-.008-.057c-.002-.014-.006-.027-.006-.041V5.789l-2.18-1.257zM5.23.81L1.47 2.974l3.76 2.164 3.758-2.164zm1.956 13.505l2.182-1.256V3.624l-1.58.91-2.182 1.255v9.435zm11.581-10.95l-3.76 2.163 3.76 2.163 3.759-2.164zm-.376 4.978L16.21 7.087 14.63 6.18v4.283l2.182 1.256 1.58.908zm-8.65 9.654l5.514-3.148 2.756-1.572-3.757-2.163-4.323 2.489-3.941 2.27z"/></svg></div><b>Laravel</b><span>Learning & building</span><div class="skill-track"><i style="width:48%"></i></div></div>
+        <div class="skill-card"><div class="skill-symbol mysql"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"/></svg></div><b>MySQL</b><span>Database basics</span><div class="skill-track"><i style="width:55%"></i></div></div>
+        <div class="skill-card"><div class="skill-symbol html"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></div><b>HTML & CSS</b><span>Web page structure</span><div class="skill-track"><i style="width:68%"></i></div></div>
+        <div class="skill-card"><div class="skill-symbol js"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></div><b>JavaScript</b><span>Building fundamentals</span><div class="skill-track"><i style="width:35%"></i></div></div>
+        <div class="skill-card"><div class="skill-symbol git"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg></div><b>Git & GitHub</b><span>Version control</span><div class="skill-track"><i style="width:40%"></i></div></div>
+      </div></div>
+    </section>
+
+    <section class="app-window glass" id="window-contact" data-window="contact" hidden>
+      <div class="window-bar"><div class="window-controls"><button class="close" data-close="contact" aria-label="Close"></button><button class="minimize" data-close="contact" aria-label="Minimize"></button><button class="maximize" aria-label="Decorative maximize"></button></div><strong>Let's connect</strong><span class="window-spacer"></span><button class="window-x" data-close="contact" type="button" aria-label="Close window" title="Close (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="window-content contact-content"><div><div class="eyebrow">HAVE AN IDEA?</div><h2>Let's make<br><span>something useful.</span></h2><p>I'm open to learning opportunities, internships, collaborations, and connecting with other developers.</p><div class="contact-card"><span class="contact-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg></span><div><small>EMAIL</small><b id="emailText">your.email@example.com</b></div><button id="copyEmail" class="copy-btn">Copy</button></div><div class="social-row"><a class="social-btn" data-social="github" href="#" target="_blank" rel="noopener noreferrer"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a><a class="social-btn" data-social="linkedin" href="#" target="_blank" rel="noopener noreferrer"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a></div><p class="note">Update the placeholder email and social links in <code>script.js</code> before publishing.</p></div><div class="contact-orb"><div class="orb-inner">Let's<br>build<span>.</span></div><i class="orb-ring"></i><i class="orb-ring ring-two"></i></div></div>
+    </section>
+
+    <section class="app-window glass" id="window-resume" data-window="resume" hidden>
+      <div class="window-bar"><div class="window-controls"><button class="close" data-close="resume" aria-label="Close"></button><button class="minimize" data-close="resume" aria-label="Minimize"></button><button class="maximize" aria-label="Decorative maximize"></button></div><strong>Resume</strong><span class="window-spacer"></span><button class="window-x" data-close="resume" type="button" aria-label="Close window" title="Close (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="window-content resume-content"><div class="resume-icon">CV</div><div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div><h2>My resume<span>.</span></h2><p>Add your PDF resume to this project as <code>assets/taha-resume.pdf</code>. Then the button will open it in a new tab.</p><a class="primary-btn resume-link" href="assets/taha-resume.pdf" target="_blank" rel="noopener">Open resume <span><svg class="ic ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg></span></a></div>
+    </section>
+  </div>
+
+  <nav class="dock" aria-label="App dock">
+    <button class="dock-app" data-open="about" aria-label="About"><span class="dock-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg></span><small>About</small></button>
+    <button class="dock-app" data-open="projects" aria-label="Projects"><span class="dock-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg></span><small>Projects</small></button>
+    <button class="dock-app" data-open="skills" aria-label="Skills"><span class="dock-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg></span><small>Skills</small></button>
+    <button class="dock-app" data-open="resume" aria-label="Resume"><span class="dock-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><small>Resume</small></button>
+    <span class="dock-divider"></span>
+    <a class="dock-app" data-social="github" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><span class="dock-icon"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span><small>GitHub</small></a>
+    <a class="dock-app" data-social="linkedin" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="dock-icon"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><small>LinkedIn</small></a>
+    <a class="dock-app" data-social="instagram" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="dock-icon instagram-icon"><svg class="ic ic-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><small>Instagram</small></a>
+    <span class="dock-divider"></span>
+    <button class="dock-app" data-open="contact" aria-label="Contact"><span class="dock-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M2 6.2 12 13.5 22 6.2V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path fill="#4285F4" d="M22 6.2V18a2 2 0 0 1-2 2h-3.5V9.4z"/><path fill="#34A853" d="M2 6.2V18a2 2 0 0 0 2 2h3.5V9.4z"/></svg></span><small>Contact</small></button>
+  </nav>
+  <!-- Single-track music player. Add your licensed MP3 at assets/portfolio-track.mp3. -->
+  <aside class="music-widget" id="musicWidget" aria-label="Music player">
+    <button class="music-fab" id="musicTogglePanel" type="button" aria-label="Open music player" aria-expanded="false" title="Music player"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="music-live-dot" aria-hidden="true"></span></button>
+    <section class="music-panel glass" id="musicPanel" aria-label="Now playing" hidden>
+      <div class="music-panel-head"><div><small>PORTFOLIO SOUNDTRACK</small><strong>Now playing</strong></div><button id="musicClose" type="button" aria-label="Close music player">×</button></div>
+      <div class="music-track"><div class="music-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="music-track-info"><b>My Portfolio Track</b><span>Personal soundtrack</span></div></div>
+      <audio id="portfolioAudio" preload="metadata" src="assets/portfolio-track.mp3.mp3"></audio>
+      <div class="music-progress-wrap"><input id="musicProgress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Track position"><div class="music-times"><span id="musicElapsed">0:00</span><span id="musicDuration">0:00</span></div></div>
+      <div class="music-controls"><button id="musicPlayPause" type="button" aria-label="Play music" title="Play"><svg id="musicPlayIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span id="musicPlayLabel">Play</span></button><span class="music-volume-note">One track only</span></div>
+      <p class="music-hint" id="musicHint">Add your MP3 to <code>assets/portfolio-track.mp3</code> to enable playback.</p>
+    </section>
+  </aside>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html><script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="02fc5a36-1319-49d4-ae91-8e75cc2da486" data-app-host="app.netlify.com" data-account-tier="free"></script>
